@@ -48,7 +48,7 @@ const Index = () => {
       }}
     >
       {/* Mobile-friendly overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent lg:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/85 to-background/30 lg:to-background/20" />
       
       <div className="relative z-10 container mx-auto px-4 py-6 min-h-screen flex items-start pt-8 sm:pt-16">
         <div className="w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0">
