@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, ExternalLink, Instagram } from "lucide-react";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,13 +10,16 @@ const Index = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
+ 
   const skills = [
+    /*
     "React", "TypeScript", "Node.js", "Python", "UI/UX Design", 
     "MongoDB", "PostgreSQL", "Docker", "AWS", "Git"
+    */
   ];
 
   const projects = [
+    /*
     {
       title: "E-Commerce Platform",
       description: "Modern, responsive e-commerce solution built with React and Node.js",
@@ -35,6 +38,7 @@ const Index = () => {
       tech: ["React", "D3.js", "Python"],
       link: "#"
     }
+      */
   ];
 
   return (
@@ -60,18 +64,18 @@ const Index = () => {
               {/* Compact Profile Section */}
               <Card className="glass-card p-4 float">
                 <div className="text-center mb-3">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-light to-primary overflow-hidden ring-2 ring-accent/30 mx-auto mb-3">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary-light to-primary overflow-hidden ring-2 ring-accent/30 mx-auto mb-3">
                     <img 
-                      src="/lovable-uploads/0380f801-53f3-4c14-80d4-e1c49076257c.png" 
+                      src="../../profile.jpg" 
                       alt="Profile" 
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <h1 className="text-xl font-bold text-foreground">
-                    Alex Johnson
+                    Umut Öner
                   </h1>
                   <p className="text-sm text-primary font-medium">
-                    Full Stack Developer
+                    Wine Making - Öküzgözü 🍇 - Gastronom🍷
                   </p>
                 </div>
 
@@ -79,29 +83,35 @@ const Index = () => {
                 <div className="space-y-2 text-xs">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Mail className="w-3 h-3 text-highlight" />
-                    <span>alex@example.com</span>
+                    <a href="mailto:max.mustermann@example.com">
+                      <span>umut_oner@hotmail.com</span>
+                    </a>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Phone className="w-3 h-3 text-highlight" />
-                    <span>+1 (555) 123-4567</span>
+                    <a href="tel:+905326611027">
+                      <span>+90 (532) 661-1027</span>
+                    </a>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <MapPin className="w-3 h-3 text-highlight" />
-                    <span>San Francisco, CA</span>
+                    <span>İstanbul / Türkiye </span>
                   </div>
                 </div>
               </Card>
 
               {/* Compact About Section */}
+              {/* 
               <Card className={`glass-card p-4 float-delayed transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-                <h2 className="text-lg font-bold text-primary mb-2">About</h2>
+                <h2 className="text-lg font-bold text-primary mb-2">Hakkımda</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Passionate full-stack developer with 5+ years experience in modern web applications. 
-                  Specializing in JavaScript frameworks with a focus on user experience.
+                  hakkimda bla bla  
                 </p>
               </Card>
+              */}
 
               {/* Compact Skills Section */}
+              {/*
               <Card className={`glass-card p-4 float transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
                 <h2 className="text-lg font-bold text-primary mb-2">Skills</h2>
                 <div className="flex flex-wrap gap-1">
@@ -117,10 +127,10 @@ const Index = () => {
                   ))}
                 </div>
               </Card>
-
+              */}
               {/* Compact Social Links */}
               <Card className={`glass-card p-4 float-delayed transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-                <h2 className="text-lg font-bold text-primary mb-2">Connect</h2>
+                <h2 className="text-lg font-bold text-primary mb-2">Sosyal Medya</h2>
                 <div className="flex gap-2">
                   <Button 
                     variant="outline" 
@@ -128,8 +138,8 @@ const Index = () => {
                     className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                      <Github className="w-3 h-3" />
+                    <a href="https://www.instagram.com/umutoner76/" target="_blank" rel="noopener noreferrer">
+                      <Instagram className="w-3 h-3"/>
                     </a>
                   </Button>
                   <Button 
@@ -148,7 +158,7 @@ const Index = () => {
                     className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://x.com/umutoner76" target="_blank" rel="noopener noreferrer">
                       <Twitter className="w-3 h-3" />
                     </a>
                   </Button>
