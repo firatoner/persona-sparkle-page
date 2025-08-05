@@ -50,77 +50,66 @@ const Index = () => {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
       
-      <div className="relative z-10 container mx-auto px-6 py-12 min-h-screen flex items-center">
-        <div className="w-full max-w-4xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 container mx-auto px-6 py-8 min-h-screen flex items-center">
+        <div className="w-full max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
-            {/* Left Side - Main Content */}
-            <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'animate-slide-in-left opacity-100' : 'opacity-0'}`}>
+            {/* Left Side - Compact CV */}
+            <div className={`space-y-4 transition-all duration-1000 ${isVisible ? 'animate-slide-in-left opacity-100' : 'opacity-0'}`}>
               
-              {/* Profile Section */}
-              <Card className="glass-card p-8 float">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-light to-primary overflow-hidden ring-4 ring-accent/30 transform hover:scale-105 transition-transform duration-300">
+              {/* Compact Profile Section */}
+              <Card className="glass-card p-4 float">
+                <div className="text-center mb-3">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-light to-primary overflow-hidden ring-2 ring-accent/30 mx-auto mb-3">
                     <img 
                       src="/lovable-uploads/0380f801-53f3-4c14-80d4-e1c49076257c.png" 
                       alt="Profile" 
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div>
-                    <h1 className="text-3xl font-bold text-foreground mb-2">
-                      Alex Johnson
-                    </h1>
-                    <p className="text-xl text-primary font-medium">
-                      Full Stack Developer
-                    </p>
-                    <p className="text-muted-foreground mt-1">
-                      Creating digital experiences that matter
-                    </p>
-                  </div>
+                  <h1 className="text-xl font-bold text-foreground">
+                    Alex Johnson
+                  </h1>
+                  <p className="text-sm text-primary font-medium">
+                    Full Stack Developer
+                  </p>
                 </div>
 
-                {/* Contact Info */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                    <Mail className="w-4 h-4 text-highlight" />
-                    <span className="text-sm">alex@example.com</span>
+                {/* Compact Contact Info */}
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Mail className="w-3 h-3 text-highlight" />
+                    <span>alex@example.com</span>
                   </div>
-                  <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                    <Phone className="w-4 h-4 text-highlight" />
-                    <span className="text-sm">+1 (555) 123-4567</span>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Phone className="w-3 h-3 text-highlight" />
+                    <span>+1 (555) 123-4567</span>
                   </div>
-                  <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                    <MapPin className="w-4 h-4 text-highlight" />
-                    <span className="text-sm">San Francisco, CA</span>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <MapPin className="w-3 h-3 text-highlight" />
+                    <span>San Francisco, CA</span>
                   </div>
                 </div>
               </Card>
 
-              {/* About Section */}
-              <Card className={`glass-card p-6 float-delayed transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-                <h2 className="text-2xl font-bold text-primary mb-4">About Me</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Passionate full-stack developer with 5+ years of experience creating 
-                  innovative web applications. I specialize in modern JavaScript frameworks 
-                  and have a keen eye for user experience design.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  When I'm not coding, you can find me exploring nature trails, 
-                  contributing to open source projects, or experimenting with new 
-                  technologies that push the boundaries of web development.
+              {/* Compact About Section */}
+              <Card className={`glass-card p-4 float-delayed transition-all duration-1000 delay-300 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
+                <h2 className="text-lg font-bold text-primary mb-2">About</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Passionate full-stack developer with 5+ years experience in modern web applications. 
+                  Specializing in JavaScript frameworks with a focus on user experience.
                 </p>
               </Card>
 
-              {/* Skills Section */}
-              <Card className={`glass-card p-6 float transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-                <h2 className="text-2xl font-bold text-primary mb-4">Skills</h2>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, index) => (
+              {/* Compact Skills Section */}
+              <Card className={`glass-card p-4 float transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
+                <h2 className="text-lg font-bold text-primary mb-2">Skills</h2>
+                <div className="flex flex-wrap gap-1">
+                  {skills.slice(0, 6).map((skill, index) => (
                     <Badge 
                       key={skill} 
                       variant="secondary" 
-                      className="bg-accent/20 text-accent-foreground border-accent/30 hover:bg-accent/30 transition-colors cursor-default transform hover:scale-105 transition-transform duration-200"
+                      className="text-xs bg-accent/20 text-accent-foreground border-accent/30 hover:bg-accent/30 transition-colors cursor-default"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {skill}
@@ -129,49 +118,46 @@ const Index = () => {
                 </div>
               </Card>
 
-              {/* Social Links */}
-              <Card className={`glass-card p-6 float-delayed transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-                <h2 className="text-2xl font-bold text-primary mb-4">Connect With Me</h2>
-                <div className="flex gap-4">
+              {/* Compact Social Links */}
+              <Card className={`glass-card p-4 float-delayed transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
+                <h2 className="text-lg font-bold text-primary mb-2">Connect</h2>
+                <div className="flex gap-2">
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="btn-nature animate-underline"
+                    className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      GitHub
+                      <Github className="w-3 h-3" />
                     </a>
                   </Button>
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="btn-nature animate-underline"
+                    className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                      <Linkedin className="w-4 h-4 mr-2" />
-                      LinkedIn
+                      <Linkedin className="w-3 h-3" />
                     </a>
                   </Button>
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="btn-nature animate-underline"
+                    className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                      <Twitter className="w-4 h-4 mr-2" />
-                      Twitter
+                      <Twitter className="w-3 h-3" />
                     </a>
                   </Button>
                 </div>
               </Card>
             </div>
 
-            {/* Right Side - Projects */}
-            <div className={`space-y-6 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
+            {/* Right Side - Projects (now takes 2 columns) */}
+            <div className={`lg:col-span-2 space-y-6 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
               <h2 className="text-3xl font-bold text-primary mb-6">Featured Projects</h2>
               
               {projects.map((project, index) => (
