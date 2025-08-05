@@ -47,12 +47,12 @@ const Index = () => {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
+      {/* Mobile-friendly overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent lg:to-transparent" />
       
-      <div className="relative z-10 container mx-auto px-6 py-8 min-h-screen flex items-center">
-        <div className="w-full max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="relative z-10 container mx-auto px-4 py-6 min-h-screen flex items-start pt-8 sm:pt-16">
+        <div className="w-full max-w-xs sm:max-w-sm mx-auto lg:mx-0">
+          <div className="w-full">
             
             {/* Left Side - Compact CV */}
             <div className={`space-y-4 transition-all duration-1000 ${isVisible ? 'animate-slide-in-left opacity-100' : 'opacity-0'}`}>
@@ -156,48 +156,6 @@ const Index = () => {
               </Card>
             </div>
 
-            {/* Right Side - Projects (now takes 2 columns) */}
-            <div className={`lg:col-span-2 space-y-6 transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
-              <h2 className="text-3xl font-bold text-primary mb-6">Featured Projects</h2>
-              
-              {projects.map((project, index) => (
-                <Card 
-                  key={project.title} 
-                  className="glass-card p-6 hover:scale-105 transition-transform duration-300 group cursor-pointer"
-                  style={{ animationDelay: `${(index + 10) * 100}ms` }}
-                >
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-highlight transition-colors" />
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <Badge 
-                        key={tech} 
-                        variant="outline" 
-                        className="border-primary/30 text-primary hover:bg-primary/10 transition-colors"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </Card>
-              ))}
-
-              <Card className="glass-card p-6 text-center">
-                <Button className="btn-nature w-full group">
-                  View All Projects
-                  <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Card>
-            </div>
           </div>
         </div>
       </div>
