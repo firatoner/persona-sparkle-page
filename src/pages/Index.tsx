@@ -132,9 +132,9 @@ const Index = () => {
               <Card className={`glass-card p-4 float-delayed transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
                 <h2 className="text-lg font-bold text-primary mb-2">Sosyal Medya</h2>
                 <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
+                  <Button
+                    variant="outline"
+                    size="sm"
                     className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
@@ -142,9 +142,9 @@ const Index = () => {
                       <Instagram className="w-3 h-3"/>
                     </a>
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
+                  <Button
+                    variant="outline"
+                    size="sm"
                     className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
@@ -152,9 +152,9 @@ const Index = () => {
                       <Linkedin className="w-3 h-3" />
                     </a>
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
+                  <Button
+                    variant="outline"
+                    size="sm"
                     className="btn-nature p-2 h-8 w-8"
                     asChild
                   >
@@ -162,6 +162,69 @@ const Index = () => {
                       <Twitter className="w-3 h-3" />
                     </a>
                   </Button>
+                </div>
+              </Card>
+
+              {/* Wine Tourism Research Section */}
+              <Card className={`wine-research-card p-6 float-delayed transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in-up opacity-100' : 'opacity-0'}`}>
+                <h2 className="text-lg font-bold text-wine mb-4">Şarap Turizmi Araştırmaları</h2>
+
+                {/* Research Abstract 1 */}
+                <div className="mb-6">
+                  <h3 className="text-md font-semibold text-wine-dark mb-2">Türkiye'de Şarap Turist Profili : Güney Ege Örneği</h3>
+                  <p className="text-sm text-wine-foreground/80 leading-relaxed">
+                    Türkiye’de Şarap Turist Profili : Güney Ege Örneği, ülkemizde gelişmekte olan şarap turizminin ekonomik, kültürel ve sosyolojik boyutlarını inceleyen öncü bir çalışmadır. Umut Öner, bu araştırmada şarap turizminin dünyadaki gelişiminden Türkiye’deki yansımalarına, şarap turistinin davranış ve beklentilerinden   bölgesel potansiyele uzanan geniş bir çerçeve sunarken Türkiye’deki şarap turist profilini de somut verilerle ortaya koyuyor. Güney Ege örneği üzerinden yapılan saha   araştırmasıyla, Türkiye’nin bağcılık kültürünün turizmle kesiştiği noktaları gözler önüne seriyor.
+                  </p>
+                  <p className="text-xs text-wine-foreground/60 mt-2">
+                    Bu kitap, hem akademi hem de sektör profesyonelleri için şarap turizmi literatürüne özgün bir katkı niteliğini taşıyor.
+                  </p>
+                </div>
+
+                {/* Research Abstract 2 */}
+                <div className="mb-6">
+                  <h3 className="text-md font-semibold text-wine-dark mb-2">Bağ Turizmi ve Şarap Rotaları</h3>
+                  <p className="text-sm text-wine-foreground/80 leading-relaxed">
+                    Türkiye'de son yıllarda hızla gelişen şarap ve bağ turizmi, hem üreticiyi hem de kırsal alanları destekleyen güçlü bir alternatif turizm türüne dönüşmüştür. Bağların zenginliği ve şarap rotalarının çeşitliliği göz önünde bulunduruldugunda, Anadolu'nun şarap turizmi açısından yüksek bir potansiyel barındırdığı görülmektedir.
+                  </p>
+                  <p className="text-sm text-wine-foreground/80 leading-relaxed">
+                    Bu çalışmada, bağ rotalarını ziyaret eden şarap turistlerinin kim olduklarını, motivasyonlarını ve bu deneyime yönelik beklentilerini anlamaya odaklandım.
+                  </p>
+                  <p className="text-sm text-wine-foreground/80 leading-relaxed">
+                    Araştırma sonuçları oldukça dikkat çekicidir. Elde edilen verıler, zıyaretçılerın en çok hangı unsurlardan etkilendiklerini açıkça ortaya koymaktadır. Kısacası, bağ rotalarımız hem üreticiler hem de şarap severler içın her geçen gün daha da güçlenen bir değer taşımaktadır.
+                  </p>
+                  <p className="text-xs text-wine-foreground/60 mt-2">
+                    "Türkiye'de Şarap Turisti Profili" adlı kitabım, tüm online kitap satış sitelerinde ve Türkiye genelindeki kitapçılarda bulunmaktadır.
+                  </p>
+                  <p className="text-xs text-wine-foreground/60 mt-1">
+                    Okuyan herkes kendi bağını bulsun diye…
+                  </p>
+                  <p className="text-xs text-wine-foreground/60 mt-1 font-semibold">
+                    Umut Öner
+                  </p>
+                </div>
+
+                {/* Image Gallery */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <img
+                    src="/lovable-uploads/wine1.jpg"
+                    alt="Şarap turizmi araştırması - Güney Ege"
+                    className="wine-image rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                  />
+                  <img
+                    src="/lovable-uploads/wine2.jpg"
+                    alt="Bağ turizmi ve şarap rotaları"
+                    className="wine-image rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                  />
+                  <img
+                    src="/lovable-uploads/wine3.jpg"
+                    alt="Şarap turisti profili analizi"
+                    className="wine-image rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                  />
+                  <img
+                    src="/lovable-uploads/wine4.jpg"
+                    alt="Türkiye'de Şarap Turisti Profili kitabı"
+                    className="wine-image rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                  />
                 </div>
               </Card>
             </div>
