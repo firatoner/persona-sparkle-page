@@ -1,105 +1,76 @@
-import { ArrowDownRight, BookOpen, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowDown, ArrowUpRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
-const gallery = [
-  { src: "/lovable-uploads/wine1.jpg", alt: "Şarap turizmi araştırması" },
-  { src: "/lovable-uploads/wine2.jpg", alt: "Bağ turizmi ve şarap rotaları" },
-  { src: "/lovable-uploads/wine3.jpg", alt: "Şarap turisti profili" },
-  { src: "/lovable-uploads/wine4.jpg", alt: "Türkiye'de Şarap Turisti Profili kitabı" },
+gsap.registerPlugin(ScrollTrigger);
+
+const grapePositions = [
+  [74, 0], [47, 29], [97, 29], [22, 59], [72, 59], [122, 59], [48, 90], [98, 90], [23, 121], [73, 121], [123, 121], [49, 152], [99, 152], [74, 183],
 ];
 
-const Index = () => (
-  <main className="site-shell">
-    <div className="grain" aria-hidden="true" />
-    <section className="hero" id="anasayfa">
-      <nav className="nav container">
-        <a className="brand" href="#anasayfa" aria-label="Umut Öner ana sayfa">
-          <span>U</span> Umut Öner
-        </a>
-        <div className="nav-links">
-          <a href="#hakkinda">Hakkında</a>
-          <a href="#calismalar">Çalışmalar</a>
-          <a className="nav-contact" href="mailto:umut_oner@hotmail.com">İletişim</a>
-        </div>
-      </nav>
+function Grapes() {
+  return <div className="grape-cluster">{grapePositions.map(([left, top], index) => <i className="grape" style={{ left, top }} key={index} />)}</div>;
+}
 
-      <div className="container hero-grid">
-        <div className="hero-copy">
-          <p className="eyebrow">ŞARAP KÜLTÜRÜ · BAĞ TURİZMİ · GASTRONOMİ</p>
-          <h1>Her bağın<br /><em>anlatacak</em> bir<br />hikâyesi vardır.</h1>
-          <p className="hero-intro">
-            Türkiye'nin bağcılık mirasını, şarap turizmini ve gastronomi kültürünü araştıran; bu hikâyeleri paylaşan bir yolculuk.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="#calismalar">Çalışmaları keşfet <ArrowDownRight size={18} /></a>
-            <a className="text-link" href="mailto:umut_oner@hotmail.com">Birlikte konuşalım <ArrowDownRight size={16} /></a>
-          </div>
-        </div>
-        <div className="portrait-wrap">
-          <div className="portrait-frame">
-            <img src="/profile.jpg" alt="Umut Öner" />
-          </div>
-          <p className="portrait-caption"><span /> Umut Öner · İstanbul, Türkiye</p>
-        </div>
-      </div>
-    </section>
+function Vine() {
+  return <div className="vine" aria-hidden="true"><div className="vine-sun" /><div className="vine-hill hill-far" /><div className="vine-hill hill-near" /><div className="vine-stalk" /><i className="leaf leaf-a" /><i className="leaf leaf-b" /><i className="leaf leaf-c" /><Grapes /></div>;
+}
 
-    <section className="intro-section container" id="hakkinda">
-      <p className="section-label">01 — YOLCULUK</p>
-      <div className="intro-content">
-        <h2>Toprağın hafızası,<br /><em>bir kadehte buluşur.</em></h2>
-        <div>
-          <p>Şarap, yalnızca bir içecek değil; coğrafyanın, emeğin ve zamanın ortak dilidir. Çalışmalarımda Anadolu'nun zengin bağcılık kültürünü turizm ve gastronomiyle buluşturuyorum.</p>
-          <dl className="contact-list">
-            <div><dt><Mail size={17} /></dt><dd><a href="mailto:umut_oner@hotmail.com">umut_oner@hotmail.com</a></dd></div>
-            <div><dt><Phone size={17} /></dt><dd><a href="tel:+905326611027">+90 (532) 661 10 27</a></dd></div>
-            <div><dt><MapPin size={17} /></dt><dd>İstanbul, Türkiye</dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
+export default function Index() {
+  const root = useRef<HTMLDivElement>(null);
 
-    <section className="work-section" id="calismalar">
-      <div className="container">
-        <p className="section-label light">02 — ARAŞTIRMALAR</p>
-        <div className="work-heading">
-          <h2>Şarap turizmine<br /><em>yakından bir bakış.</em></h2>
-          <BookOpen size={34} strokeWidth={1.25} />
-        </div>
-        <div className="research-grid">
-          <article className="research-card feature-card">
-            <p className="card-number">01</p>
-            <h3>Türkiye'de Şarap Turisti Profili: Güney Ege Örneği</h3>
-            <p>Türkiye'de gelişmekte olan şarap turizminin ekonomik, kültürel ve sosyolojik boyutlarını inceleyen öncü bir çalışma. Güney Ege'deki saha araştırmasıyla, şarap turistlerinin davranışlarını, beklentilerini ve bölgesel potansiyeli somut verilerle ele alıyor.</p>
-            <p className="card-note">Akademi ve sektör profesyonelleri için özgün bir kaynak.</p>
-          </article>
-          <article className="research-card">
-            <p className="card-number">02</p>
-            <h3>Bağ Turizmi ve Şarap Rotaları</h3>
-            <p>Anadolu'nun bağ rotalarına gelen ziyaretçilerin motivasyonlarını ve deneyim beklentilerini anlamaya odaklanan çalışma; üreticiler, kırsal alanlar ve şarap severler arasındaki güçlü bağı inceliyor.</p>
-            <p className="card-note">“Okuyan herkes kendi bağını bulsun diye…”</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  useLayoutEffect(() => {
+    const context = gsap.context(() => {
+      gsap.set(".intro-panel", { autoAlpha: 1, y: 0 });
+      gsap.set(".ripening-panel, .harvest-panel, .research-panel, .final-panel", { autoAlpha: 0, y: 0 });
+      gsap.set(".basket", { autoAlpha: 0, x: -20, y: 90, rotate: -8 });
+      gsap.set(".barrel", { autoAlpha: 0, y: 110, rotate: 7 });
+      gsap.set(".wine-glass", { autoAlpha: 0, y: 90, scale: 0.82 });
+      gsap.set(".final-wash", { autoAlpha: 0 });
+      const timeline = gsap.timeline({
+        scrollTrigger: { trigger: ".wine-story", start: "top top", end: "+=4400", scrub: 1, pin: true, anticipatePin: 1 },
+      });
+      timeline
+        .to(".intro-panel", { autoAlpha: 0, duration: 1 })
+        .to(".vine-sun", { y: 100, scale: 1.35, backgroundColor: "#df8b5d", duration: 1 }, "<")
+        .to(".grape", { backgroundColor: "#641d35", scale: 1.08, duration: 1, stagger: 0.025 }, "<")
+        .to(".ripening-panel", { autoAlpha: 1, y: 0, duration: 0.8 }, "<.35")
+        .to(".ripening-panel", { autoAlpha: 0, duration: 0.7 }, "+=1.15")
+        .to(".vine", { x: -220, y: -110, scale: 0.78, duration: 1 }, "<")
+        .to(".basket", { autoAlpha: 1, x: 0, y: 0, rotate: 0, duration: 1 }, "<.2")
+        .to(".harvest-panel", { autoAlpha: 1, y: 0, duration: 0.8 }, "<.35")
+        .to(".harvest-panel", { autoAlpha: 0, duration: 0.7 }, "+=1.2")
+        .to(".vine, .basket", { autoAlpha: 0, y: -150, duration: 0.8 }, "<")
+        .to(".barrel", { autoAlpha: 1, y: 0, rotate: 0, duration: 1 }, "<.2")
+        .to(".research-panel", { autoAlpha: 1, y: 0, duration: 0.8 }, "<.25")
+        .to(".research-panel", { autoAlpha: 0, duration: 0.7 }, "+=1.35")
+        .to(".barrel", { autoAlpha: 0, y: -150, duration: 0.75 }, "<")
+        .to(".final-wash", { autoAlpha: 1, duration: 0.8 }, "<")
+        .to(".wine-glass", { autoAlpha: 1, y: 0, scale: 1, duration: 0.9 }, "<")
+        .to(".pour", { autoAlpha: 1, duration: 0.35 }, "<.25")
+        .to(".wine-fill", { height: "57%", duration: 1.5 }, "<")
+        .to(".final-panel", { autoAlpha: 1, y: 0, duration: 0.8 }, "<.35");
+    }, root);
+    return () => context.revert();
+  }, []);
 
-    <section className="gallery-section container">
-      <div className="gallery-title"><p className="section-label">03 — GÖRSEL NOTLAR</p><p>Bir araştırmadan kareler</p></div>
-      <div className="gallery">
-        {gallery.map((image, index) => <figure className={`gallery-image gallery-${index + 1}`} key={image.src}><img src={image.src} alt={image.alt} loading="lazy" /></figure>)}
-      </div>
-    </section>
+  return <div className="story-app" ref={root}>
+    <header className="site-header"><a href="#baslangic" className="logo" aria-label="Umut Öner ana sayfa">U<span>°</span></a><span>UMUT ÖNER · ŞARAP KÜLTÜRÜ</span><a href="mailto:umut_oner@hotmail.com">İletişim <ArrowUpRight size={15} /></a></header>
+    <main className="wine-story" id="baslangic">
+      <div className="scene-background" /><div className="final-wash" /><div className="scene-noise" />
+      <div className="story-counter"><b>01</b><i /><span>05</span></div>
+      <Vine />
+      <div className="basket" aria-hidden="true"><Grapes /></div>
+      <div className="barrel" aria-hidden="true"><i /><i /><b>UO</b></div>
+      <div className="wine-glass" aria-hidden="true"><div className="pour" /><div className="wine-fill" /><div className="glass-stem" /><div className="glass-foot" /></div>
 
-    <footer className="footer">
-      <div className="container footer-inner">
-        <div><a className="brand footer-brand" href="#anasayfa"><span>U</span> Umut Öner</a><p>Şarap kültürü, bağ turizmi ve gastronomi.</p></div>
-        <div className="socials">
-          <a href="https://www.instagram.com/umutoner76/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={19} /></a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={19} /></a>
-          <a href="https://x.com/umutoner76" target="_blank" rel="noreferrer" aria-label="X"><Twitter size={18} /></a>
-        </div>
-      </div>
-    </footer>
-  </main>
-);
-
-export default Index;
+      <section className="panel intro-panel"><p className="eyebrow">BİR BAĞIN HİKÂYESİ</p><h1>Topraktan<br /><em>kadehe.</em></h1><p className="panel-lead">Anadolu'nun bağcılık mirası; emek, zaman ve merakla dönüşen bir hikâye.</p><p className="start-scroll">Kaydır ve keşfet <ArrowDown size={17} /></p></section>
+      <section className="panel ripening-panel panel-right"><p className="eyebrow">01 — OLGUNLAŞMA</p><h2>Güneş, sabır<br />ve <em>bir mevsim.</em></h2><p>Her salkım toprağın karakterini taşır. Yeşilden mora dönen taneler, bağın bütün yıl biriktirdiği hikâyedir.</p></section>
+      <section className="panel harvest-panel panel-right"><p className="eyebrow">02 — HASAT</p><h2>Doğru anda<br /><em>toplamak.</em></h2><p>Hasat, yalnızca bir meyveyi toplamak değildir. Bağın ritmini, iklimi ve emeği dinlemeyi gerektirir.</p></section>
+      <section className="panel research-panel"><p className="eyebrow">03 — ARAŞTIRMALAR</p><h2>Bağların izinde,<br /><em>insan hikâyeleri.</em></h2><div className="research-links"><a href="#iletisim"><span>01</span>Türkiye'de Şarap Turisti Profili <ArrowUpRight size={17} /></a><a href="#iletisim"><span>02</span>Bağ Turizmi ve Şarap Rotaları <ArrowUpRight size={17} /></a></div></section>
+      <section className="panel final-panel" id="iletisim"><p className="eyebrow">04 — KADEH</p><h2>Bir yolculuk,<br /><em>tek yudumda.</em></h2><p>Şarabın içinde toprağın sesi, bağın rüzgârı ve onu büyüten insanların emeği vardır.</p><div className="contact-card"><a href="mailto:umut_oner@hotmail.com"><Mail size={16} /> umut_oner@hotmail.com</a><a href="tel:+905326611027"><Phone size={16} /> +90 532 661 10 27</a><span><MapPin size={16} /> İstanbul, Türkiye</span></div></section>
+    </main>
+    <footer><span>© {new Date().getFullYear()} UMUT ÖNER</span><div><a href="https://www.instagram.com/umutoner76/" target="_blank" rel="noreferrer"><Instagram size={16} /> Instagram</a><a href="mailto:umut_oner@hotmail.com">E-posta <ArrowUpRight size={14} /></a></div></footer>
+  </div>;
+}
