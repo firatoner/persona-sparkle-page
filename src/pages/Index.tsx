@@ -83,7 +83,7 @@ const Index = () => {
                 <div className="space-y-2 text-xs">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Mail className="w-3 h-3 text-highlight" />
-                    <a href="mailto:max.mustermann@example.com">
+                    <a href="mailto:umut_oner@hotmail.com">
                       <span>umut_oner@hotmail.com</span>
                     </a>
                   </div>
