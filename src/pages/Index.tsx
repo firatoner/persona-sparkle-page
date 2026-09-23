@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { ArrowDown, ArrowRight, ArrowUpRight, Instagram, MapPin, Phone } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Instagram, MapPin, Phone } from "lucide-react";
 
 const email = "umut_oner@hotmail.com";
 const focusAreas = [
@@ -13,7 +13,7 @@ export default function Index() {
 
   useEffect(() => {
     const page = pageRef.current;
-    if (!page || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!page || window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
     const items = Array.from(page.querySelectorAll<HTMLElement>("[data-reveal]"));
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -45,24 +45,31 @@ export default function Index() {
         <section className="hero" id="ust" aria-labelledby="hero-title">
           <div className="hero-content">
             <div className="hero-kicker" data-reveal><span className="kicker-line" /> ŞARAP KÜLTÜRÜ · TURİZM · ARAŞTIRMA</div>
-            <h1 id="hero-title" data-reveal>Bağların izinde,<br /><em>kültürün</em> peşinde.</h1>
+            <h1 id="hero-title" data-reveal>Bağların<br /><em>izinde.</em></h1>
             <p className="hero-intro" data-reveal>Ben Umut Öner. Şarabın çevresinde oluşan kültürü, bağların anlattığı hikâyeleri ve insanların bu yolculukla kurduğu ilişkiyi araştırıyorum.</p>
             <div className="hero-actions" data-reveal>
               <a className="button button-primary" href="#calismalar">Çalışmaları keşfet <ArrowUpRight size={18} aria-hidden="true" /></a>
               <a className="text-link" href="#hakkimda">Beni tanıyın <ArrowDown size={17} aria-hidden="true" /></a>
             </div>
-            <p className="hero-location" data-reveal><MapPin size={15} strokeWidth={1.6} aria-hidden="true" /> İstanbul, Türkiye</p>
+            <p className="hero-location" data-reveal><MapPin size={15} strokeWidth={1.6} aria-hidden="true" /> İstanbul, Türkiye <span aria-hidden="true">/</span> İnsan · Yer · Hikâye</p>
           </div>
           <div className="hero-visual" data-reveal>
             <div className="portrait-frame">
-              <img className="portrait" src="/profile.jpg" alt="Umut Öner'in portresi" fetchPriority="high" />
+              <img className="portrait" src="/profile.jpg" alt="Umut Öner'in portresi" />
               <span className="portrait-caption">UMUT ÖNER <span>—</span> İSTANBUL</span>
             </div>
             <img className="hero-illustration" src="/portfolio-illustration.svg" alt="" aria-hidden="true" />
-            <div className="visual-index" aria-hidden="true">01 / 04</div>
+            <div className="visual-index" aria-hidden="true">UMUT ÖNER / PORTRE</div>
           </div>
-          <div className="hero-bottom"><span>İNSAN · YER · HİKÂYE</span><span>KEŞFETMEK İÇİN KAYDIRIN <ArrowDown size={14} aria-hidden="true" /></span></div>
+          <div className="hero-bottom"><span>ŞARAP KÜLTÜRÜNE DAİR BİR BAKIŞ</span><a href="#hakkimda">AŞAĞI KAYDIRIN <ArrowDown size={14} aria-hidden="true" /></a></div>
         </section>
+
+        <nav className="chapter-nav" aria-label="Bölümler">
+          <a href="#hakkimda"><span>01</span> Hakkımda <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <a href="#odak"><span>02</span> Odak alanları <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <a href="#calismalar"><span>03</span> Çalışmalar <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <a href="#iletisim"><span>04</span> İletişim <ArrowUpRight size={16} aria-hidden="true" /></a>
+        </nav>
 
         <section className="about section-shell" id="hakkimda" aria-labelledby="about-title">
           <div className="section-meta" data-reveal><span>01 / HAKKIMDA</span><span className="meta-line" /></div>
@@ -76,7 +83,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section className="expertise" aria-labelledby="expertise-title">
+        <section className="expertise" id="odak" aria-labelledby="expertise-title">
           <div className="section-shell">
             <div className="section-meta light" data-reveal><span>02 / ODAK ALANLARI</span><span className="meta-line" /></div>
             <div className="expertise-heading" data-reveal>
@@ -89,7 +96,7 @@ export default function Index() {
                   <span className="focus-number">{area.number}</span>
                   <h3>{area.title}</h3>
                   <p>{area.description}</p>
-                  <ArrowUpRight className="focus-arrow" size={24} strokeWidth={1.3} aria-hidden="true" />
+                  <span className="focus-decoration" aria-hidden="true">✳</span>
                 </article>
               ))}
             </div>
@@ -110,7 +117,7 @@ export default function Index() {
             <article className="topic-work" data-reveal>
               <span className="project-type">ARAŞTIRMA KONUSU</span>
               <div><span className="topic-number">02</span><h3>Bağ Turizmi ve<br />Şarap Rotaları</h3><p>Bağlar, rotalar ve yerel deneyim arasındaki ilişki üzerine bir araştırma alanı.</p></div>
-              <span className="topic-mark" aria-hidden="true"><ArrowRight size={28} strokeWidth={1.2} /></span>
+              <span className="topic-mark" aria-hidden="true">02 / 02</span>
             </article>
           </div>
         </section>
